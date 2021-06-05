@@ -6,6 +6,7 @@ from .nav_msgs import OccupancyGridTranslator, OdometryTranslator
 from .sensor_msgs import NavSatFixTranslator
 from .std_msgs import StringTranslator
 from .wireless_msgs import ConnectionTranslator
+from .bff_msgs import FloatStatusTranslator
 
 
 __all__ = [
@@ -25,5 +26,6 @@ builtinTranslators = (
     OdometryTranslator,
     Pose2DTranslator,
     PoseStampedTranslator,
-    StringTranslator
+    StringTranslator,
+    FloatStatusTranslator
 )
