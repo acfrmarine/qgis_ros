@@ -1,6 +1,7 @@
 # Float QGIS ROS
 
 ## Installation - Ammended
+```bash
 mkdir -p ~/ros/qgis_ws/src
 cd ~/ros/qgis_ws/src/
 git clone git@github.com:locusrobotics/qgis_ros.git
@@ -9,7 +10,7 @@ git clone git@github.com:locusrobotics/json_transport.git
 git clone git@github.com:acfrmarine/float_ros_msgs.git
 git clone git@github.com:acfrmarine/bff_ros.git  # If you are having issues, add CATKIN_IGNORE to all packages except bff_msgs
 catkin build
-
+```
 
 
 
