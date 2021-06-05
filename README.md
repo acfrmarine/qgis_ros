@@ -1,3 +1,19 @@
+# Float QGIS ROS
+
+## Installation - Ammended
+mkdir -p ~/ros/qgis_ws/src
+cd ~/ros/qgis_ws/src/
+git clone git@github.com:locusrobotics/qgis_ros.git
+git clone git@github.com:clearpathrobotics/wireless.git
+git clone git@github.com:locusrobotics/json_transport.git
+git clone git@github.com:acfrmarine/float_ros_msgs.git
+git clone git@github.com:acfrmarine/bff_ros.git  # If you are having issues, add CATKIN_IGNORE to all packages except bff_msgs
+catkin build
+
+
+
+
+
 # QGIS-ROS
 A QGIS plugin for interacting with data from ROS topics and bags.
 
@@ -15,7 +31,7 @@ QGIS can be installed from [the QGIS download page.][1] You need to add a PPA if
 ```bash
 cd ~/my_ros_ws/src/
 git clone git@github.com:locusrobotics/qgis_ros.git
-git clone git@github.com/clearpathrobotics/wireless.git
+git clone git@github.com:clearpathrobotics/wireless.git
 git clone git@github.com:locusrobotics/json_transport.git
 catkin build
 
