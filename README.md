@@ -1,10 +1,21 @@
 # Float QGIS ROS
 
 ## Installation - Ammended
+
+Install pip packages
+```bash
+pip3 install -r reqirements.txt
+```
+
+Install apt packages
+```bash
+sudo apt install ros-melodic-catkin-virtualenv
+```
+
 ```bash
 mkdir -p ~/ros/qgis_ws/src
 cd ~/ros/qgis_ws/src/
-git clone git@github.com:locusrobotics/qgis_ros.git
+git clone git@github.com:acfrmarine/qgis_ros.git
 git clone git@github.com:clearpathrobotics/wireless.git
 git clone git@github.com:locusrobotics/json_transport.git
 git clone git@github.com:acfrmarine/float_ros_msgs.git
