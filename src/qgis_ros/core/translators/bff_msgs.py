@@ -44,7 +44,7 @@ class SurfaceVesselStatusTranslator(Translator, VectorTranslatorMixin):
         yaw = rpy[2]
 
         heading = math.pi - yaw
-
+        heading_d = heading*180.0/np.pi
         return [{
             'type': 'Feature',
             'geometry': {
@@ -55,7 +55,7 @@ class SurfaceVesselStatusTranslator(Translator, VectorTranslatorMixin):
                 'stamp': msg.header.stamp.to_sec(),
                 'state': msg.state,
                 'voltage': msg.battery_state.voltage,
-                'heading': heading,
+                'heading': heading_d,
                 'yaw': yaw,
                 'yaw_x': math.cos(yaw),
                 'yaw_y': math.sin(yaw)
