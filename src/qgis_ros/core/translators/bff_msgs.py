@@ -5,6 +5,7 @@ import math
 # from tf.transformations import euler_from_quaternion
 import numpy as np
 import quaternion
+from geojson import LineString
 
 
 class FloatStatusTranslator(Translator, VectorTranslatorMixin):
@@ -21,6 +22,29 @@ class FloatStatusTranslator(Translator, VectorTranslatorMixin):
                 'type': 'Point',
                 'coordinates': [msg.gnss_position.longitude, msg.gnss_position.latitude]
             },
+            'properties': {
+                'stamp': msg.header.stamp.to_sec(),
+                'state': msg.state,
+                'voltage': msg.main_battery_state.voltage,
+            }
+        }]
+
+class FloatStatusHistoryTranslator(Translator, VectorTranslatorMixin):
+    messageType = FloatStatus
+    geomType = Translator.GeomTypes.Point
+    crsName = 'wgs84'
+    def __init__(self):
+        self.ll_history = []
+        self.history_length = 100
+
+    def translate(self, msg):
+        self.ll_history.append([msg.gnss_position.longitude, msg.gnss_position.latitude])
+        if len(self.ll_history) > self.history_length:
+            self.ll_history = self.ll_history[len(self.ll_history) - self.history_length:]
+
+        return [{
+            'type': 'Feature',
+            'geometry': LineString(self.ll_history),
             'properties': {
                 'stamp': msg.header.stamp.to_sec(),
                 'state': msg.state,
